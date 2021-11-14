@@ -32,7 +32,8 @@ class RegisterController extends AbstractController
 
         if ($registerForm->isSubmitted() && $registerForm->isValid()) {
             $user = $registerForm->getData();
-            $password = $hasher->hashPassword($user, $user->getPassword());
+            $hashedPassword = $hasher->hashPassword($user, $user->getPassword());
+            $user->setPassword($hashedPassword);
             $this->entityManager->persist($user);
             $this->entityManager->flush();
         }

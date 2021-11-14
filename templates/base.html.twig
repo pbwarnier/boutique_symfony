@@ -44,10 +44,11 @@
                         <a class="nav-link active" aria-current="page" href="#">Home</a>
                     </li>
                 </ul>
-                <form class="d-flex">
-                    <input class="form-control me-2" type="search" placeholder="Rechercher" aria-label="Search">
-                    <button class="btn btn-outline-success" type="submit">Search</button>
-                </form>
+                {% if app.user %}
+                    <a href="{{ path('account') }}">Mon compte</a>
+                {% else %}
+                     <a href="{{ path('app_login') }}">Se connecter</a>
+                {% endif %}
             </div>
         </div>
     </nav>
