@@ -15,14 +15,15 @@
     {% endif %}
 
     <h1 class="h3 mb-3 font-weight-normal">Se connecter à mon compte</h1>
-    <label for="inputEmail">Email</label>
-    <input type="email" value="{{ last_username }}" name="email" id="inputEmail" class="form-control" autocomplete="email" required autofocus>
-    <label for="inputPassword">Mot de passe</label>
-    <input type="password" name="password" id="inputPassword" class="form-control" autocomplete="current-password" required>
-
-    <input type="hidden" name="_csrf_token"
-           value="{{ csrf_token('authenticate') }}"
-    >
+    <div class="mb-3">
+        <label for="inputEmail">Email</label>
+        <input type="email" value="{{ last_username }}" name="email" id="inputEmail" class="form-control" autocomplete="email" required autofocus>
+    </div>
+    <div class="mb-3">
+        <label for="inputPassword">Mot de passe</label>
+        <input type="password" name="password" id="inputPassword" class="form-control" autocomplete="current-password" required>
+        <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
+    </div>
 
     {#
         Uncomment this section and add a remember_me option below your firewall to activate remember me functionality.
@@ -41,8 +42,7 @@
 </form>
 <div class="mt-4 w-100">
     <h1 class="h3 mb-3 font-weight-normal">Créer mon compte</h1>
-    <p>
-        Vous n'êtes pas encore membre de Boutique Symfony ? <a href"{{ path('register') }}">S'inscrire ici</a>
-    </p>
+    <p>Vous n'êtes pas encore membre de Boutique Symfony ?</p>
+    <a class="btn btn-outline-dark" href"{{ path('register') }}" role="button">S'inscrire ici</a>
 </div>
 {% endblock %}

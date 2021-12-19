@@ -9,6 +9,7 @@
 
     <!-- Bootstrap core CSS -->
     <link href="{{ asset('assets/css/bootstrap.min.css') }}" rel="stylesheet">
+    <link href="{{ asset('assets/css/style.css') }}" rel="stylesheet">
     <style>
         .bd-placeholder-img {
             font-size: 1.125rem;
@@ -34,20 +35,23 @@
 <header>
     <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
         <div class="container-fluid">
-            <a class="navbar-brand" href="#">La boutique Symfony</a>
+            <a class="navbar-brand" href="{{ path('home') }}">La boutique Symfony</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarCollapse">
                 <ul class="navbar-nav me-auto mb-2 mb-md-0">
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="#">Home</a>
+                        <a class="nav-link active" aria-current="page" href="#">La boutique</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="#">Qui sommes nous ?</a>
                     </li>
                 </ul>
                 {% if app.user %}
-                    <a href="{{ path('account') }}">Mon compte</a>
+                    <a class="link-light text-decoration-none" href="{{ path('account') }}">Mon compte</a>
                 {% else %}
-                     <a href="{{ path('app_login') }}">Se connecter</a>
+                    <a class="link-light text-decoration-none" href="{{ path('app_login') }}">Se connecter</a>
                 {% endif %}
             </div>
         </div>
@@ -119,10 +123,12 @@
     </div><!-- /.container -->
 
     <!-- FOOTER -->
-    <footer class="container">
-        <div class="w-100 d-flex justify-content-between">
-            <p>&copy; 2017-2020 Company, Inc. &middot; <a href="#">Privacy</a> &middot; <a href="#">Terms</a></p>
-            <p><a href="#">Back to top</a></p>
+    <footer class="py-2 position-fixed bottom-0 w-100">
+        <div class="container">
+            <div class="w-100 d-flex justify-content-between">
+                <div>&copy; 2017-2020 Boutique Symfony.</div>
+                <div><a href="#">Haut de page</a></div>
+            </div>
         </div>
     </footer>
 </main>
